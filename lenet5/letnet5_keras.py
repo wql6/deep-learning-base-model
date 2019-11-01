@@ -46,19 +46,24 @@ model = keras.Sequential([
 model.compile(loss=keras.losses.categorical_crossentropy, optimizer='adam', metrics=['accuracy'])  # SGD 是单个运算，精度高，不过也容易过拟合，速度慢
 # 学习30个纪元（可依据CPU计算力调整），使用20%数据交叉验证
 records = model.fit(x_train, label_train, epochs=1, validation_split=0.2, )
-model.metrics_names=['loss', 'acc', 'mean_pred']
-model = keras.models.load_model('my_modle.h5')
-score = model.evaluate(x_test, label_test, batch_size=100, verbose=1, sample_weight=None)
-print(model.metrics_names)
-print(score)
-print(type(score))
 
-# model.save('my_modle.h5')
 
+# model.metrics_names=['loss', 'acc', 'mean_pred']
+# model = keras.models.load_model('my_modle.h5')
+# score = model.evaluate(x_test, label_test, batch_size=100, verbose=1, sample_weight=None)
+# print(model.metrics_names)
+# print(score)
+# print(type(score))
+
+
+modle.save('my_model.h5')
 # # 预测
-y_pred = np.argmax(model.predict(x_test), axis=1) # 打印最大概率对应的标签
+print('predict==========')
+print(model.predict(x_test))
+y_pred = np.argmax(model.predict(x_test), axis=1)
+print('y_pred:',y_pred)
 print("prediction accuracy: {}".format(sum(y_pred==y_test)/len(y_test)))
-
+model.summary()
 
 
 # 绘制结果
