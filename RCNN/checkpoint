@@ -1,0 +1,2 @@
+model_checkpoint_path: "F:\\python_projects\\PycharmProjects\\RCNN-master\\RCNN-master\\rcnn_model_alexnet-4200"
+all_model_checkpoint_paths: "F:\\python_projects\\PycharmProjects\\RCNN-master\\RCNN-master\\rcnn_model_alexnet-4200"
